@@ -9,4 +9,4 @@ A wargame usually involves semantic URL attacks, knowledge-based authentication,
 ###Level 0###
 The goal of this level is for you to log into the game using SSH. The host to which you need to connect is **bandit.labs.overthewire.org**.  Using PuTTY session connect to the host.
 
-![Capture1](https://lh6.googleusercontent.com/xZVtVj7o61GwS0O_-pAxXNryH2EOjJJ-Cse1KFcQZqEeUebPK5XzumJbpNuKbDWwC-o3xQJzmlyeRnKI1LdyC-cQcQfETzNd8Gip=w1342-h547)
+![Capture1](F:\Cyber Security(MSc)-3rd Semester\PTES\Assignment4 - 26-04-2015\Images\Capture1)
