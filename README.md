@@ -10,3 +10,12 @@ A wargame usually involves semantic URL attacks, knowledge-based authentication,
 The goal of this level is for you to log into the game using SSH. The host to which you need to connect is **bandit.labs.overthewire.org**.  Using PuTTY session connect to the host.
 
 ![Capture1](https://lh6.googleusercontent.com/anJjx51bDmjV4nl6uMRIZLy7YOP8f4gn4e-hETHUIm8O0OLTmJdEEdF7NIDJCoruMtWpvRQgOpHdl_2bLYOqDPgskZCub_V66DsF=w1342-h503)
+
+	username: bandit0
+	password: bandit0 
+
+Once logged in, go to the Level 1 page to find out how to beat Level 1.
+
+![Capture2]()
+
+
