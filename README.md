@@ -277,32 +277,33 @@ The password for the next level can be retrieved by submitting the password of t
 
 	-sV --> Version detection: After TCP and/or  UDP  ports  are  discovered using   one   of  the  other  scan  methods,  version  detection communicates with those ports to try and  determine  more  about what  is actually running.
 
-![Capture42]()
+![capture42](https://cloud.githubusercontent.com/assets/12239510/7896820/26d6028a-06e3-11e5-8c5b-dd5c7b4f0e06.JPG)
 
 The open ports; 31000, 31046, 31691, and 31960 were not tested, since those are echo or SSH. So port number 31518 was checked but no result found.
 
-![Capture43]()
+
+![capture43](https://cloud.githubusercontent.com/assets/12239510/7896817/26be8a2e-06e3-11e5-9f21-02da9d845d83.JPG)
 
 Then port 31790 was checked and another RSA private key will be given.
 
-![Capture44]()
+![capture44](https://cloud.githubusercontent.com/assets/12239510/7896822/273399d6-06e3-11e5-967c-e8c5151ea37d.JPG)
 
 Then rename the existing sshkey.private with a new name and copy the original RSA private key to **sshkey.private**.
 
-![Capture45]()
+![capture45](https://cloud.githubusercontent.com/assets/12239510/7896819/26d13c50-06e3-11e5-907f-a42bcde66d79.JPG)
 
 Change the access permissions of the sshkey.private and using ssh log into the next level.
 
 	-i identity_file --> Selects a file from which the identity (private key) for RSA or DSA authentication is read.
 
-![Capture46]()
+![capture46](https://cloud.githubusercontent.com/assets/12239510/7896821/26e279d4-06e3-11e5-99b6-86d9074366b8.JPG)
 
 Retrieve the bandit17 password, or start working on the next level.
 
 	username: bandit17
 	password: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
-![Capture47]()
+![capture47](https://cloud.githubusercontent.com/assets/12239510/7896823/28008a0e-06e3-11e5-8dcd-c83db87ff35e.JPG)
 
 
 ###Level 17 -> Level 18###
@@ -325,22 +326,22 @@ It then tells us what those lines are in each file: Lines preceded by **<** are 
 	username: bandit18
 	password: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 
-![Capture48]()
+![capture48](https://cloud.githubusercontent.com/assets/12239510/7899220/a5e75ac8-0739-11e5-9e58-1a2735c36c48.JPG)
 
 
 ###Level 18 -> Level 19###
 The password for the next level is stored in a file **readme** in the home directory. Unfortunately, someone has modified **.bashrc** to log you out when you log in with SSH. When try to connect to the shell at bandit18, it presented with an error message.
 
-![Capture49]()
+![capture49](https://cloud.githubusercontent.com/assets/12239510/7899222/a5fb97b8-0739-11e5-9846-8e4adfb7f303.jpg)
 
 Since it says that the password for the next level is stored inside a file called **readme** in the home directory, use **cat** command and read the content of the file to the stdout. 
 
-![Capture50]()
+![capture50](https://cloud.githubusercontent.com/assets/12239510/7899221/a5f1ddfe-0739-11e5-9549-3d4b6710f516.jpg)
 
 	username: bandit19
 	password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 
-![Capture51]()
+![capture51](https://cloud.githubusercontent.com/assets/12239510/7899223/a6066580-0739-11e5-95bd-0ba607a35740.JPG)
 
 
 ###Level 19 -> Level 20###
@@ -350,12 +351,12 @@ To gain access to the next level, you should use the **setuid** binary in the ho
 
 By running the binary with shows the usage of the binary and gives an example of using the id command. Running the binary with the **id** command as the argument shows that it runs with the effective user and group id of **bandit20**, which means it runs with privileges of **bandit20**. When the binary runs with the **whoami** it shows the effective user of the current terminal as **bandit20**. So we can use **cat** command to read the password of the next level with the binary.
 
-![Capture52]()
+![capture52](https://cloud.githubusercontent.com/assets/12239510/7899224/a6137aae-0739-11e5-8274-47ca803670c0.JPG)
 
 	username: bandit20
 	password: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 
-![Capture53]()
+![capture53](https://cloud.githubusercontent.com/assets/12239510/7899225/a61b9806-0739-11e5-9e83-20f0dbb7b05f.JPG)
 
 
 ###Level 20 -> Level 21###
@@ -365,24 +366,24 @@ There is a **setuid** binary in the home directory that does the following: it m
 
 **NOTE 2**: Try connecting to your own network daemon to see if it works as you think.
 
-![Capture54]()
+![capture54](https://cloud.githubusercontent.com/assets/12239510/7899226/a6249578-0739-11e5-94b0-74772e17d3af.JPG)
 
 Using **nc** command and create a listening on a random port, and connect it with **suconnect** binary.
 
 	**-l** --> Used to specify that **nc** should listen for an incoming connection rather than initiate a connection to a remote host.
 
-![Capture55]()
+![capture55](https://cloud.githubusercontent.com/assets/12239510/7899227/a62fcdee-0739-11e5-905e-b0f7e1c6ec44.JPG)
 
 Then in a different shell connect with **suconnect**. Then we send the password of bandit20 through the nc session and suconnect sends back the new password.
 
-![Capture56]()
+![capture56](https://cloud.githubusercontent.com/assets/12239510/7899228/a63c8002-0739-11e5-9e52-850f671fd839.JPG)
 
-![Capture57]()
+![capture57](https://cloud.githubusercontent.com/assets/12239510/7899229/a647a55e-0739-11e5-8676-dde0210617e4.JPG)
 
 	username: bandit21
 	password: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
-![Capture58]()
+![capture58](https://cloud.githubusercontent.com/assets/12239510/7899230/a6517868-0739-11e5-9cbd-1078f0281174.JPG)
 
 
 ###Level 21 -> Level 22###
@@ -390,12 +391,12 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 > **Cron** is a software utility, a time-based job scheduler in Unix-like computer operating systems. People who set up and maintain software environments use **cron** to schedule jobs (commands or shell scripts) to run periodically at fixed times, dates, or intervals. It typically automates system maintenance or administration—though its general-purpose nature makes it useful for things like connecting to the Internet and downloading email at regular intervals. Cron is driven by a ***crontab*** (cron table) file, a configuration file that specifies shell commands to run periodically on a given schedule. The crontab files are stored where the lists of jobs and other instructions to the cron daemon are kept. Users can have their own individual crontab files and often there is a system wide crontab file (usually in /etc or a subdirectory of /etc) that only system administrators can edit. Each line of a crontab file represents a job, and is composed of a CRON expression, followed by a shell command to execute.
 
-![Capture59]()
+![capture59](https://cloud.githubusercontent.com/assets/12239510/7899231/a65fe362-0739-11e5-9762-b4a06ecdd6ee.JPG)
 
 	username: bandit22
 	password: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 
-![Capture60]()
+![capture60](https://cloud.githubusercontent.com/assets/12239510/7899232/a6681fdc-0739-11e5-9882-2d070374847b.JPG)
 
 
 ###Level 22 -> Level 23###
@@ -403,14 +404,14 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 **NOTE**: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
 
-![Capture61]()
+![capture61](https://cloud.githubusercontent.com/assets/12239510/7899233/a673bacc-0739-11e5-9b90-9ebc8e33caa1.JPG)
 
 We need to replace *$myname* with **bandit23**, and *$mytarget* with the return value. **Cron** creates a file in **/tmp** that is the result of an *md5 hashing process* combined with a username which creates the name of the file that will hold the password.
 
 	username: bandit23
 	password: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
 
-![Capture62]()
+![capture62](https://cloud.githubusercontent.com/assets/12239510/7899234/a67fb296-0739-11e5-9439-f52d1431c225.JPG)
 
 
 ###Level 23 -> Level 24###
@@ -420,59 +421,59 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 **NOTE 2**: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around.
 
-![Capture63]()
+![capture63](https://cloud.githubusercontent.com/assets/12239510/7899235/a68b02a4-0739-11e5-962e-4772a9b3ece6.JPG)
 
-![Capture64]()
+![capture64](https://cloud.githubusercontent.com/assets/12239510/7899236/a6971c24-0739-11e5-979c-ab58cec9ec8a.JPG)
 
 The script has been modified since the last time by adding **timeout -s 9 60 "./$i"**. Therefore after copying the script to **/var/spool/bandit24** you have to wait at least ten minutes for the script to get executed by cron.
 
-![Capture65]()
+![capture65](https://cloud.githubusercontent.com/assets/12239510/7899237/a6a2b87c-0739-11e5-83e7-25f08f18c797.JPG)
 
 	username: bandit24
 	password: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
-![Capture66]()
+![capture66](https://cloud.githubusercontent.com/assets/12239510/7899238/a6a98e0e-0739-11e5-81fc-0466ecc12e1b.JPG)
 
 
 ###Level 24 -> Level 25###
 A daemon is listening on port 30002 and will give you the password for **bandit25** if given the password for **bandit24** and a *secret numeric 4-digit pincode*. There is no way to retrieve the pincode except by going through all of the 10000 combinaties, called brute-forcing.
 
-![Capture67]()
+![capture67](https://cloud.githubusercontent.com/assets/12239510/7899239/a6b65b16-0739-11e5-9508-466ea87705aa.JPG)
 
 Since the 4-digit pin code can vary from 0001-9999; write a script to automate the process.
 
-![Capture68]()
+![capture68](https://cloud.githubusercontent.com/assets/12239510/7899240/a6c23bac-0739-11e5-9dc6-8df8752bc8f6.JPG)
 
-![Capture69]()
+![capture69](https://cloud.githubusercontent.com/assets/12239510/7899241/a6cc60fa-0739-11e5-9424-bc76d3e75db0.JPG)
 
 	username: bandit25
 	password: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 
-![Capture70]()
+![capture70](https://cloud.githubusercontent.com/assets/12239510/7899242/a6da2906-0739-11e5-9e09-52ef3ad5b781.JPG)
 
 
 ###Level 25 -> Level 26###
 Logging in to **bandit26** from bandit25 should be fairly easy… The shell for user bandit26 is ***not* /bin/bash**, but something else. Find out what it is, how it works and how to break out of it.
 
-![Capture71]()
+![capture71](https://cloud.githubusercontent.com/assets/12239510/7899243/a6e3efae-0739-11e5-89ff-26055176459b.JPG)
 
-![Capture72]()
+![capture72](https://cloud.githubusercontent.com/assets/12239510/7899244/a6ec87e0-0739-11e5-918b-933df79855d3.JPG)
 
-![Capture73]()
+![capture73](https://cloud.githubusercontent.com/assets/12239510/7899245/a6f773b2-0739-11e5-9fd4-39e0fce49031.JPG)
 
-![Capture74]()
+![capture74](https://cloud.githubusercontent.com/assets/12239510/7899246/a7018eec-0739-11e5-88c5-6ff9f0accd7a.JPG)
 
 Adjust the window to a very small scale where you see “--More--” at the bottom.
 
-![Capture75]()
+![capture75](https://cloud.githubusercontent.com/assets/12239510/7899247/a70ffd56-0739-11e5-91b1-e02411e46c02.JPG)
 
 Then press '**v**'.
 
-![Capture76]()
+![capture76](https://cloud.githubusercontent.com/assets/12239510/7899248/a71c46ec-0739-11e5-9a1d-1e666263222a.JPG)
 
-![Capture77]()
+![capture77](https://cloud.githubusercontent.com/assets/12239510/7899249/a7248ef6-0739-11e5-9f42-9ea75a959ed1.JPG)
 
-![Capture78]()
+![capture78](https://cloud.githubusercontent.com/assets/12239510/7899250/a72ea7ba-0739-11e5-972b-0ed618055ff0.JPG)
 
 	username: bandit26
 	password: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
